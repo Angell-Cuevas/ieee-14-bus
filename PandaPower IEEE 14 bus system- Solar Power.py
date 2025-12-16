@@ -11,6 +11,7 @@ net = nw.case14()
 # Scale all bus voltages down (distribution level ~12-33 kV base)
 
 #net.bus.vn_kv = net.bus.vn_kv / 10  # Roughly scales to medium voltage
+#initially tried to decresed bus values by 10 but did not work. so then used code shown below instead
 
 # NEW: Smaller solar to help convergence
 pp.create_sgen(net, bus=9, p_mw=-1.5, q_mvar=0, name="Solar at Bus 9")
@@ -50,3 +51,4 @@ plt.show()
 net.res_line.loading_percent.plot(kind='bar', title='Line Loading WITH Solar (%)')
 plt.savefig('loading_with_solar.png')
 plt.show()
+
